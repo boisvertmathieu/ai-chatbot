@@ -242,26 +242,6 @@ spring.ai.azure.openai.chat.options.temperature=0.7
 spring.ai.azure.openai.chat.options.max-tokens=1000
 ```
 
-## 🚀 Pipeline CI/CD
-
-Le projet inclut des workflows GitHub Actions pour :
-
-1. **Tests automatisés** : Tests unitaires et d'intégration
-2. **Build et packaging** : Construction de l'image Docker
-3. **Déploiement** : Déploiement automatique sur Azure
-4. **Sécurité** : Scan des vulnérabilités
-
-### Configuration du pipeline
-
-1. Configurez les secrets GitHub :
-
-   - `AZURE_CREDENTIALS`
-   - `AZURE_REGISTRY_LOGIN_SERVER`
-   - `AZURE_REGISTRY_USERNAME`
-   - `AZURE_REGISTRY_PASSWORD`
-
-2. Adaptez `.github/workflows/deploy.yml` à votre environnement
-
 ## 🧪 Tests
 
 ```bash
@@ -291,29 +271,3 @@ src/
     └── application-prod.properties
 ```
 
-## 🤝 Contribution
-
-1. Fork le projet
-2. Créez une branche feature (`git checkout -b feature/nouvelle-fonctionnalite`)
-3. Committez vos changements (`git commit -am 'Ajout nouvelle fonctionnalité'`)
-4. Poussez la branche (`git push origin feature/nouvelle-fonctionnalite`)
-5. Créez une Pull Request
-
-## 📄 Licence
-
-Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
-
-## 🔗 Liens utiles
-
-- [Documentation Spring AI](https://docs.spring.io/spring-ai/reference/)
-- [Azure OpenAI Documentation](https://docs.microsoft.com/en-us/azure/cognitive-services/openai/)
-- [Azure AI Search](https://docs.microsoft.com/en-us/azure/search/)
-- [Spring Boot Documentation](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/)
-
-## 📞 Support
-
-Pour toute question ou problème :
-
-- Créez une issue sur GitHub
-- Consultez la documentation
-- Contactez l'équipe de développement

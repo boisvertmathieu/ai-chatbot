@@ -36,8 +36,8 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     
     // Spring AI avec Azure OpenAI et Azure AI Search
-    implementation 'org.springframework.ai:spring-ai-azure-openai-spring-boot-starter'
-    implementation 'org.springframework.ai:spring-ai-azure-store-spring-boot-starter'
+    implementation 'org.springframework.ai:spring-ai-azure-openai'
+    implementation 'org.springframework.ai:spring-ai-azure-store'
     
     // Azure SQL Database
     implementation 'com.microsoft.sqlserver:mssql-jdbc'

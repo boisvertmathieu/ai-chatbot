@@ -59,7 +59,7 @@ public class ChatbotService {
             
             // 3. Génération de la réponse avec Azure OpenAI
             org.springframework.ai.chat.model.ChatResponse aiResponse = generateResponse(contextualPrompt);
-            String responseText = aiResponse.getResult().getOutput().getContent();
+            String responseText = aiResponse.getResult().getOutput().getText();
             
             // 4. Extraction des métadonnées
             List<String> documentIds = relevantDocuments.stream()
@@ -97,10 +97,12 @@ public class ChatbotService {
     private List<Document> retrieveRelevantDocuments(String question) {
         log.debug("Recherche de documents pertinents pour la question: {}", question);
         
-        SearchRequest searchRequest = SearchRequest.query(question)
-            .withTopK(maxResults)
-            .withSimilarityThreshold(similarityThreshold);
-            
+        SearchRequest searchRequest = SearchRequest.builder()
+                .query(question)
+                .similarityThreshold(similarityThreshold)
+                .topK(maxResults)
+                .build();
+
         return vectorStore.similaritySearch(searchRequest);
     }
     
@@ -110,7 +112,7 @@ public class ChatbotService {
         if (!documents.isEmpty()) {
             context.append("Contexte pertinent:\n");
             for (int i = 0; i < documents.size(); i++) {
-                context.append(String.format("[Doc %d] %s\n", i + 1, documents.get(i).getContent()));
+                context.append(String.format("[Doc %d] %s\n", i + 1, documents.get(i).getText()));
             }
             context.append("\n");
         }
